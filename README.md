@@ -1,47 +1,142 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19706472&assignment_repo_type=AssignmentRepo)
-# MongoDB Fundamentals Assignment
+# 📚 MongoDB Fundamentals – Week 1 Assignment (PLP Academy)
 
-This assignment focuses on learning MongoDB fundamentals including setup, CRUD operations, advanced queries, aggregation pipelines, and indexing.
+**Author:** Majimbo Anyangu  
+**Course:** MERN Stack – Backend Track  
+**Database Used:** MongoDB (local instance)  
+**Main File:** `queries.cjs`
 
-## Assignment Overview
+---
 
-You will:
-1. Set up a MongoDB database
-2. Perform basic CRUD operations
-3. Write advanced queries with filtering, projection, and sorting
-4. Create aggregation pipelines for data analysis
-5. Implement indexing for performance optimization
+## 🧠 Project Overview
 
-## Getting Started
+This project demonstrates a strong grasp of MongoDB fundamentals through five key tasks. It includes:
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+- Inserting seed data into a collection
+- Performing basic CRUD operations
+- Executing advanced queries with projection, sorting, and pagination
+- Using powerful aggregation pipelines for data analytics
+- Applying indexing to optimize query performance
 
-## Files Included
+All queries were implemented in Node.js using the native MongoDB driver.
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+---
 
-## Requirements
+## 📁 File Structure
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+```bash
+📦 project-folder
+├── insert_books.js       # Inserts initial 12 book records
+├── queries.cjs           # Contains all queries for Tasks 2–5
+├── README.md             # This documentation
+└── screenshots/          # Folder for embedded screenshots
+```
 
-## Submission
+---
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+## ⚙️ Setup Instructions
 
-1. Complete all tasks in the assignment
-2. Add your `queries.js` file with all required MongoDB queries
-3. Include a screenshot of your MongoDB database
-4. Update the README.md with your specific setup instructions
+1. Ensure MongoDB is running locally (`mongodb://localhost:27017`).
+2. Clone the repository and navigate to the project folder.
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the seed script:
+   ```bash
+   node insert_books.js
+   ```
+5. Run all queries:
+   ```bash
+   node queries.cjs
+   ```
 
-## Resources
+---
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+## ✅ Task Breakdown
+
+### 📌 Task 1: Insert Books
+- Script: `insert_books.js`
+- Action: Inserts 12 sample books into the `books` collection in the `plp_bookstore` database.
+
+📸 Screenshot:
+![Insert Books Output](./screenshots/1.insert-books-output.png)
+
+---
+
+### 🔍 Task 2: Basic CRUD Operations
+- Find all books in the Fiction genre
+- Find books published after 1950
+- Find all books by George Orwell
+- Update price of "The Great Gatsby" to 11.99
+- Delete "Animal Farm" from the collection
+
+📸 Screenshot:
+![CRUD - Part A](./screenshots/2a_crud_results.png)  
+![CRUD - Part B](./screenshots/2b_crud_results.png)
+
+---
+
+### 🔎 Task 3: Advanced Queries
+- Filter books that are in stock and published after 2010
+- Use projection to return only `title`, `author`, and `price`
+- Sort books by price in ascending and descending order
+- Paginate to display page 2 with 5 books per page
+
+📸 Screenshot:
+![Advanced Query Output](./screenshots/3a_advanced_queries.png)
+
+---
+
+### 📊 Task 4: Aggregation Pipeline
+- Group books by genre to calculate the average price and count
+- Determine the author with the most books
+- Group books by publication decade (e.g., 1950s, 1980s)
+
+Aggregation pipelines used: `$group`, `$sort`, `$concat`, `$floor`, `$toString`, `$match`
+
+📸 Screenshot:
+![Aggregation Output](./screenshots/4_aggregation.cjs.png)
+
+---
+
+### 🚀 Task 5: Indexing & Optimization
+- Create a simple index on the `title` field
+- Create a compound index on `author` and `published_year`
+- Use `.explain("executionStats")` to analyze query performance
+
+📸 Screenshot:
+![Index and Explain Output](./screenshots/5b.Index.cjs.png)
+
+
+### 🧪 Optional: MongoDB Compass views  
+![Compass Aggregations](./screenshots/Aggregations..png)  
+![Compass Documents](./screenshots/Documents.png)  
+![Compass Indexes](./screenshots/Indexes..png)
+---
+
+## 🧩 Concepts Demonstrated
+
+- MongoDB CRUD commands via the native Node.js driver
+- Aggregation pipeline design and transformation logic
+- Efficient data retrieval using indexes
+- Pagination for real-world application use
+- Performance analysis with execution stats
+
+---
+
+## ✅ Final Notes
+
+- This project uses CommonJS syntax (`.cjs`) for compatibility with Node.js v22+
+- MongoDB driver version: ^6.17.0
+- No third-party ODM libraries were used (e.g., Mongoose)
+- All outputs were tested using `console.log()` and captured as screenshots
+
+---
+
+## 📦 Submission Checklist
+
+- [x] insert_books.js completed
+- [x] queries.cjs completed with all 5 tasks
+- [x] README.md with embedded screenshots
+- [x] Screenshots saved in /screenshots folder
+
